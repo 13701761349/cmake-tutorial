@@ -4,6 +4,8 @@ project (Tutorial)
 set (Tutorial_VERSION_MAJOR 1)
 set (Tutorial_VERSION_MINOR 0)
 
+set (CMAKE_INSTALL_PREFIX ${PROJECT_BINARY_DIR})
+
 # configure a header file to pass some of the CMake setting
 # to the source code
 configure_file (
