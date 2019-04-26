@@ -20,7 +20,7 @@ option (USE_MYMATH
 include_directories("${PROJECT_BINARY_DIR}")
 
 if (USE_MYMATH)
-	include_directories("${PROJECT_BINARY_DIR}/MathFunctions")
+	include_directories("${PROJECT_SOURCE_DIR}/MathFunctions")
 	add_subdirectory("${PROJECT_SOURCE_DIR}/MathFunctions")
 	set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
 endif (USE_MYMATH)
