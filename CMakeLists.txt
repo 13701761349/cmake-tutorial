@@ -54,3 +54,16 @@ set_tests_properties (TutorialSmall PROPERTIES PASS_REGULAR_EXPRESSION "0.0001 i
 # does the usage message work?
 add_test (TutorialUsage Tutorial)
 set_tests_properties (TutorialUsage PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number")
+
+
+#define a macro to simplify adding tests, then use it
+macro (do_test arg result)
+	add_test (TutorialComp${arg} Tutorial ${arg})
+	set_tests_properties (TutorialComp${arg}
+			PROPERTIES PASS_REGULAR_EXPRESSION ${result})
+endmacro (do_test)
+
+# do a bunch of result based tests
+do_test (49 "49 is 7")
+do_test (-25 "-25 is -nan")
+
