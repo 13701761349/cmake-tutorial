@@ -18,9 +18,16 @@ int main (int argc, char *argv[])
 		return 1;
 	}
 	double inputValue = atof(argv[1]);
+
+#if defined (HAVE_LOG) && defined (HAVE_EXP)
+	printf("HAVE_LOG AND HAVE_EXP\n");
+#endif
+
 #ifdef USE_MYMATH
+	printf("mysqrt\n");
 	double outputValue = mysqrt(inputValue);
 #else
+	printf("sqrt\n");
 	double outputValue = sqrt(inputValue);
 #endif
 	fprintf(stdout,"The square root of %g is %g\n",

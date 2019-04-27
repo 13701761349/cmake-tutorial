@@ -16,6 +16,10 @@ configure_file (
 # should we use our own math functions?
 option (USE_MYMATH 
         "Use tutorial provided math implementation" ON) 
+#option (HAVE_LOG
+#	"Use tutorial provided HAVE_LOG implementation" ON) 
+#option (HAVE_EXP
+#	"Use tutorial provided HAVE_EXP implementation" ON) 
 
 # add the binary tree to the search path for include files
 # so that well find TutorialConfig.h
@@ -66,4 +70,10 @@ endmacro (do_test)
 # do a bunch of result based tests
 do_test (49 "49 is 7")
 do_test (-25 "-25 is -nan")
+
+
+# does this system provide the log and expp functions ?
+include (CheckFunctionExists)
+check_function_exists ( log HAVE_LOG )
+check_function_exists ( exp HAVE_EXP )
 
